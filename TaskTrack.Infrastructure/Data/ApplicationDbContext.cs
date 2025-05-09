@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TaskTrack.Infrastructure.Entities;
 
 public class ApplicationDbContext : DbContext
 {
@@ -7,4 +8,6 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<TaskItemEntity> TaskItems { get; set; }
+    public DbSet<UserEntity> Users { get; set; }
+    public DbSet<JwtRefreshTokenEntity> JwtRefreshTokens { get; set; }
 }
