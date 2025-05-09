@@ -10,6 +10,7 @@
 - `dotnet ef database update  -s TaskTrack.API -p TaskTrack.Infrastructure`
 
 ## To-Do
+- Add `bool isValid` to Jwt Refresh tokens
 - Errors handling/logging
 - Email/password validation
 - Task<->User model update
