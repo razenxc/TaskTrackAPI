@@ -85,6 +85,13 @@ public class JwtAuthRepository : IJwtAuthRepository
             return null;
         }
 
+        if(jwtRefreshTokenEntity.Expires <= DateTime.UtcNow || jwtRefreshTokenEntity.Expires <= DateTime.Now)
+        {
+            jwtRefreshTokenEntity.IsExpired = true;
+            await _db.SaveChangesAsync();
+            return null;
+        }
+
         string newAccessToken = await GenerateToken(jwtRefreshTokenEntity.UserId);
         string newRefershToken = await GenerateRefreshToken(jwtRefreshTokenEntity.UserId);
 
